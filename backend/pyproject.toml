@@ -1,0 +1,31 @@
+[project]
+name = "backend"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "mason ko",email = "gym1029@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi (>=0.119.0,<0.120.0)",
+    "uvicorn (>=0.37.0,<0.38.0)",
+    "pydantic-settings (>=2.11.0,<3.0.0)",
+    "sqlalchemy (>=2.0.44,<3.0.0)",
+    "pydantic[email] (>=2.12.2,<3.0.0)",
+    "httpx-oauth (>=0.16.1,<0.17.0)",
+    "itsdangerous (>=2.2.0,<3.0.0)",
+    "google-generativeai (>=0.8.5,<0.9.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "pytest (>=8.4.2,<9.0.0)",
+    "httpx (>=0.28.1,<0.29.0)",
+    "pytest-env (>=1.2.0,<2.0.0)"
+]
