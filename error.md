@@ -1,79 +1,999 @@
-ERROR:    Exception in ASGI application
-Traceback (most recent call last):
-  File "/home/yeongminko/.cache/pypoetry/virtualenvs/backend-HXHKy2u--py3.12/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 403, in run_asgi
-    result = await app(  # type: ignore[func-returns-value]
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/yeongminko/.cache/pypoetry/virtualenvs/backend-HXHKy2u--py3.12/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
-    return await self.app(scope, receive, send)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/yeongminko/.cache/pypoetry/virtualenvs/backend-HXHKy2u--py3.12/lib/python3.12/site-packages/fastapi/applications.py", line 1133, in __call__
-    await super().__call__(scope, receive, send)
-  File "/home/yeongminko/.cache/pypoetry/virtualenvs/backend-HXHKy2u--py3.12/lib/python3.12/site-packages/starlette/applications.py", line 113, in __call__
-    await self.middleware_stack(scope, receive, send)
-  File "/home/yeongminko/.cache/pypoetry/virtualenvs/backend-HXHKy2u--py3.12/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
-    raise exc
-  File "/home/yeongminko/.cache/pypoetry/virtualenvs/backend-HXHKy2u--py3.12/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
-    await self.app(scope, receive, _send)
-  File "/home/yeongminko/.cache/pypoetry/virtualenvs/backend-HXHKy2u--py3.12/lib/python3.12/site-packages/starlette/middleware/sessions.py", line 85, in __call__
-    await self.app(scope, receive, send_wrapper)
-  File "/home/yeongminko/.cache/pypoetry/virtualenvs/backend-HXHKy2u--py3.12/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
-    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
-  File "/home/yeongminko/.cache/pypoetry/virtualenvs/backend-HXHKy2u--py3.12/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
-    raise exc
-  File "/home/yeongminko/.cache/pypoetry/virtualenvs/backend-HXHKy2u--py3.12/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
-    await app(scope, receive, sender)
-  File "/home/yeongminko/.cache/pypoetry/virtualenvs/backend-HXHKy2u--py3.12/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
-    await self.app(scope, receive, send)
-  File "/home/yeongminko/.cache/pypoetry/virtualenvs/backend-HXHKy2u--py3.12/lib/python3.12/site-packages/starlette/routing.py", line 716, in __call__
-    await self.middleware_stack(scope, receive, send)
-  File "/home/yeongminko/.cache/pypoetry/virtualenvs/backend-HXHKy2u--py3.12/lib/python3.12/site-packages/starlette/routing.py", line 736, in app
-    await route.handle(scope, receive, send)
-  File "/home/yeongminko/.cache/pypoetry/virtualenvs/backend-HXHKy2u--py3.12/lib/python3.12/site-packages/starlette/routing.py", line 290, in handle
-    await self.app(scope, receive, send)
-  File "/home/yeongminko/.cache/pypoetry/virtualenvs/backend-HXHKy2u--py3.12/lib/python3.12/site-packages/fastapi/routing.py", line 123, in app
-    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
-  File "/home/yeongminko/.cache/pypoetry/virtualenvs/backend-HXHKy2u--py3.12/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
-    raise exc
-  File "/home/yeongminko/.cache/pypoetry/virtualenvs/backend-HXHKy2u--py3.12/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
-    await app(scope, receive, sender)
-  File "/home/yeongminko/.cache/pypoetry/virtualenvs/backend-HXHKy2u--py3.12/lib/python3.12/site-packages/fastapi/routing.py", line 109, in app
-    response = await f(request)
-               ^^^^^^^^^^^^^^^^
-  File "/home/yeongminko/.cache/pypoetry/virtualenvs/backend-HXHKy2u--py3.12/lib/python3.12/site-packages/fastapi/routing.py", line 389, in app
-    raw_response = await run_endpoint_function(
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/yeongminko/.cache/pypoetry/virtualenvs/backend-HXHKy2u--py3.12/lib/python3.12/site-packages/fastapi/routing.py", line 288, in run_endpoint_function
-    return await dependant.call(**values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/mnt/c/dev/my/recipe-genie/backend/app/api/recipes.py", line 27, in generate_recipe
-    recipe_text = gemini.generate_recipe(
-                  ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/mnt/c/dev/my/recipe-genie/backend/app/services/gemini.py", line 17, in generate_recipe
-    response = model.generate_content(prompt)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/yeongminko/.cache/pypoetry/virtualenvs/backend-HXHKy2u--py3.12/lib/python3.12/site-packages/google/generativeai/generative_models.py", line 331, in generate_content
-    response = self._client.generate_content(
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/yeongminko/.cache/pypoetry/virtualenvs/backend-HXHKy2u--py3.12/lib/python3.12/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/client.py", line 835, in generate_content
-    response = rpc(
-               ^^^^
-  File "/home/yeongminko/.cache/pypoetry/virtualenvs/backend-HXHKy2u--py3.12/lib/python3.12/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
-    return wrapped_func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/yeongminko/.cache/pypoetry/virtualenvs/backend-HXHKy2u--py3.12/lib/python3.12/site-packages/google/api_core/retry/retry_unary.py", line 294, in retry_wrapped_func
-    return retry_target(
-           ^^^^^^^^^^^^^
-  File "/home/yeongminko/.cache/pypoetry/virtualenvs/backend-HXHKy2u--py3.12/lib/python3.12/site-packages/google/api_core/retry/retry_unary.py", line 156, in retry_target
-    next_sleep = _retry_error_helper(
-                 ^^^^^^^^^^^^^^^^^^^^
-  File "/home/yeongminko/.cache/pypoetry/virtualenvs/backend-HXHKy2u--py3.12/lib/python3.12/site-packages/google/api_core/retry/retry_base.py", line 214, in _retry_error_helper
-    raise final_exc from source_exc
-  File "/home/yeongminko/.cache/pypoetry/virtualenvs/backend-HXHKy2u--py3.12/lib/python3.12/site-packages/google/api_core/retry/retry_unary.py", line 147, in retry_target
-    result = target()
-             ^^^^^^^^
-  File "/home/yeongminko/.cache/pypoetry/virtualenvs/backend-HXHKy2u--py3.12/lib/python3.12/site-packages/google/api_core/timeout.py", line 130, in func_with_timeout
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/home/yeongminko/.cache/pypoetry/virtualenvs/backend-HXHKy2u--py3.12/lib/python3.12/site-packages/google/api_core/grpc_helpers.py", line 77, in error_remapped_callable
-    raise exceptions.from_grpc_error(exc) from exc
-google.api_core.exceptions.NotFound: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+ddc_module_loader.js:1015 DDC is about to load 1/2 scripts with pool size = 1000
+ddc_module_loader.js:1015 DDC is about to load 584/584 scripts with pool size = 1000
+ddc_module_loader.js:1583 Starting application from main method in: org-dartlang-app:/web_entrypoint.dart.
+(index):1 Access to fetch at 'http://127.0.0.1:8000/users/me' from origin 'http://localhost:3001' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+browser_client.dart:82  GET http://127.0.0.1:8000/users/me net::ERR_FAILED 401 (Unauthorized)
+(anonymous) @ browser_client.dart:82
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+(anonymous) @ async_patch.dart:594
+runUnary @ zone.dart:1849
+handleValue @ future_impl.dart:222
+handleValueCallback @ future_impl.dart:948
+_propagateToListeners @ future_impl.dart:977
+[_completeWithValue] @ future_impl.dart:720
+(anonymous) @ future_impl.dart:804
+_microtaskLoop @ schedule_microtask.dart:40
+_startMicrotaskLoop @ schedule_microtask.dart:49
+tear @ operations.dart:118
+(anonymous) @ async_patch.dart:188
+Promise.then
+_scheduleImmediateWithPromise @ async_patch.dart:187
+_scheduleImmediate @ async_patch.dart:160
+_scheduleAsyncCallback @ schedule_microtask.dart:70
+_rootScheduleMicrotask @ zone.dart:1623
+scheduleMicrotask$ @ schedule_microtask.dart:150
+schedule @ stream_impl.dart:645
+[_setPendingEvents] @ stream_impl.dart:150
+[_subscribe] @ stream_controller.dart:714
+[_createSubscription] @ stream_controller.dart:854
+listen @ stream_impl.dart:516
+listen @ stream.dart:2319
+toBytes @ byte_stream.dart:23
+(anonymous) @ browser_client.dart:74
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+_asyncStartSync @ async_patch.dart:542
+send @ browser_client.dart:65
+(anonymous) @ base_client.dart:93
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+_asyncStartSync @ async_patch.dart:542
+[_sendUnstreamed] @ base_client.dart:74
+get @ base_client.dart:27
+(anonymous) @ http.dart:50
+(anonymous) @ http.dart:168
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+_asyncStartSync @ async_patch.dart:542
+_withClient @ http.dart:165
+get @ http.dart:50
+(anonymous) @ auth_service.dart:28
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+_asyncStartSync @ async_patch.dart:542
+fetchUser @ auth_service.dart:24
+(anonymous) @ auth_provider.dart:21
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+_asyncStartSync @ async_patch.dart:542
+fetchUser @ auth_provider.dart:18
+dartDevEmbedder.defineLibrary.auth_provider.AuthProvider.new @ auth_provider.dart:15
+(anonymous) @ main.dart:26
+get value @ inherited_provider.dart:749
+get value @ inherited_provider.dart:603
+of @ provider.dart:337
+(anonymous) @ main.dart:31
+build @ basic.dart:8226
+build @ framework.dart:5791
+performRebuild @ framework.dart:5723
+rebuild @ framework.dart:5435
+[_firstBuild] @ framework.dart:5705
+mount @ framework.dart:5699
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+performRebuild @ framework.dart:5747
+rebuild @ framework.dart:5435
+[_firstBuild] @ framework.dart:5705
+mount @ framework.dart:5699
+mount @ inherited_provider.dart:424
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+performRebuild @ framework.dart:5747
+rebuild @ framework.dart:5435
+[_firstBuild] @ framework.dart:5705
+mount @ framework.dart:5699
+mount @ inherited_provider.dart:424
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+performRebuild @ framework.dart:5747
+rebuild @ framework.dart:5435
+[_firstBuild] @ framework.dart:5705
+mount @ framework.dart:5699
+mount @ nested.dart:222
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+performRebuild @ framework.dart:5747
+rebuild @ framework.dart:5435
+[_firstBuild] @ framework.dart:5705
+mount @ framework.dart:5699
+mount @ nested.dart:187
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+performRebuild @ framework.dart:5747
+rebuild @ framework.dart:5435
+[_firstBuild] @ framework.dart:5705
+mount @ framework.dart:5699
+mount @ nested.dart:222
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+performRebuild @ framework.dart:5747
+rebuild @ framework.dart:5435
+[_firstBuild] @ framework.dart:5705
+mount @ framework.dart:5699
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+performRebuild @ framework.dart:5747
+rebuild @ framework.dart:5435
+[_firstBuild] @ framework.dart:5705
+mount @ framework.dart:5699
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+performRebuild @ framework.dart:5747
+performRebuild @ framework.dart:5884
+rebuild @ framework.dart:5435
+[_firstBuild] @ framework.dart:5705
+[_firstBuild] @ framework.dart:5875
+mount @ framework.dart:5699
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+performRebuild @ framework.dart:5747
+rebuild @ framework.dart:5435
+[_firstBuild] @ framework.dart:5705
+mount @ framework.dart:5699
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+performRebuild @ framework.dart:5747
+performRebuild @ framework.dart:5884
+rebuild @ framework.dart:5435
+[_firstBuild] @ framework.dart:5705
+[_firstBuild] @ framework.dart:5875
+mount @ framework.dart:5699
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+performRebuild @ framework.dart:5747
+performRebuild @ framework.dart:5884
+rebuild @ framework.dart:5435
+[_firstBuild] @ framework.dart:5705
+[_firstBuild] @ framework.dart:5875
+mount @ framework.dart:5699
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+performRebuild @ framework.dart:5747
+rebuild @ framework.dart:5435
+[_firstBuild] @ framework.dart:5705
+mount @ framework.dart:5699
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+performRebuild @ framework.dart:5747
+performRebuild @ framework.dart:5884
+rebuild @ framework.dart:5435
+[_firstBuild] @ framework.dart:5705
+[_firstBuild] @ framework.dart:5875
+mount @ framework.dart:5699
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+performRebuild @ framework.dart:5747
+rebuild @ framework.dart:5435
+[_firstBuild] @ framework.dart:5705
+mount @ framework.dart:5699
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+performRebuild @ framework.dart:5747
+rebuild @ framework.dart:5435
+[_firstBuild] @ framework.dart:5705
+mount @ framework.dart:5699
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+[_updateChild] @ view.dart:481
+mount @ view.dart:504
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+performRebuild @ framework.dart:5747
+rebuild @ framework.dart:5435
+[_firstBuild] @ framework.dart:5705
+mount @ framework.dart:5699
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+performRebuild @ framework.dart:5747
+performRebuild @ framework.dart:5884
+rebuild @ framework.dart:5435
+[_firstBuild] @ framework.dart:5705
+[_firstBuild] @ framework.dart:5875
+mount @ framework.dart:5699
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+[_rebuild] @ binding.dart:1716
+mount @ binding.dart:1685
+(anonymous) @ binding.dart:1638
+buildScope @ framework.dart:3046
+attach @ binding.dart:1637
+attachToBuildOwner @ binding.dart:1376
+attachRootWidget @ binding.dart:1361
+(anonymous) @ binding.dart:1347
+internalCallback @ isolate_helper.dart:47
+setTimeout
+(anonymous) @ isolate_helper.dart:54
+_createTimer @ async_patch.dart:199
+createTimer @ zone.dart:1873
+new @ timer.dart:46
+run @ timer.dart:107
+scheduleAttachRootWidget @ binding.dart:1346
+(anonymous) @ binding.dart:1575
+_runWidget @ binding.dart:1575
+runApp @ binding.dart:1510
+(anonymous) @ main.dart:15
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+(anonymous) @ async_patch.dart:594
+runUnary @ zone.dart:1849
+handleValue @ future_impl.dart:222
+handleValueCallback @ future_impl.dart:948
+_propagateToListeners @ future_impl.dart:977
+[_completeWithValue] @ future_impl.dart:720
+complete @ async_patch.dart:504
+_asyncReturn @ async_patch.dart:571
+(anonymous) @ dotenv.dart:140
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+(anonymous) @ async_patch.dart:594
+runUnary @ zone.dart:1849
+handleValue @ future_impl.dart:222
+handleValueCallback @ future_impl.dart:948
+_propagateToListeners @ future_impl.dart:977
+[_completeWithValue] @ future_impl.dart:720
+complete @ async_patch.dart:504
+_asyncReturn @ async_patch.dart:571
+(anonymous) @ dotenv.dart:174
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+(anonymous) @ async_patch.dart:594
+runUnary @ zone.dart:1849
+handleValue @ future_impl.dart:222
+handleValueCallback @ future_impl.dart:948
+_propagateToListeners @ future_impl.dart:977
+[_completeWithValue] @ future_impl.dart:720
+complete @ async_patch.dart:504
+_asyncReturn @ async_patch.dart:571
+(anonymous) @ asset_bundle.dart:101
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+(anonymous) @ async_patch.dart:594
+runUnary @ zone.dart:1849
+handleValue @ future_impl.dart:222
+handleValueCallback @ future_impl.dart:948
+_propagateToListeners @ future_impl.dart:977
+[_completeWithValue] @ future_impl.dart:720
+(anonymous) @ future_impl.dart:804
+_microtaskLoop @ schedule_microtask.dart:40
+_startMicrotaskLoop @ schedule_microtask.dart:49
+tear @ operations.dart:118
+(anonymous) @ async_patch.dart:188
+Promise.then
+_scheduleImmediateWithPromise @ async_patch.dart:187
+_scheduleImmediate @ async_patch.dart:160
+_scheduleAsyncCallback @ schedule_microtask.dart:70
+_rootScheduleMicrotask @ zone.dart:1623
+scheduleMicrotask @ zone.dart:1869
+[_asyncCompleteWithValue] @ future_impl.dart:803
+[_asyncComplete] @ future_impl.dart:763
+complete @ future_impl.dart:98
+(anonymous) @ binding.dart:627
+runUnaryGuarded @ zone.dart:1778
+(anonymous) @ platform_dispatcher.dart:433
+(anonymous) @ platform_dispatcher.dart:1287
+runUnary @ zone.dart:1849
+handleValue @ future_impl.dart:222
+handleValueCallback @ future_impl.dart:948
+_propagateToListeners @ future_impl.dart:977
+[_complete] @ future_impl.dart:711
+(anonymous) @ future.dart:415
+internalCallback @ isolate_helper.dart:47
+setTimeout
+(anonymous) @ isolate_helper.dart:54
+_createTimer @ async_patch.dart:199
+createTimer @ zone.dart:1873
+new @ timer.dart:46
+delayed @ future.dart:413
+replyToPlatformMessage @ platform_dispatcher.dart:1285
+(anonymous) @ platform_dispatcher.dart:663
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+(anonymous) @ async_patch.dart:594
+runUnary @ zone.dart:1849
+handleValue @ future_impl.dart:222
+handleValueCallback @ future_impl.dart:948
+_propagateToListeners @ future_impl.dart:977
+[_completeWithValue] @ future_impl.dart:720
+(anonymous) @ future_impl.dart:804
+_microtaskLoop @ schedule_microtask.dart:40
+_startMicrotaskLoop @ schedule_microtask.dart:49
+tear @ operations.dart:118
+(anonymous) @ async_patch.dart:188
+Promise.then
+_scheduleImmediateWithPromise @ async_patch.dart:187
+_scheduleImmediate @ async_patch.dart:160
+_scheduleAsyncCallback @ schedule_microtask.dart:70
+_rootScheduleMicrotask @ zone.dart:1623
+scheduleMicrotask @ zone.dart:1869
+[_asyncCompleteWithValue] @ future_impl.dart:803
+[_asyncComplete] @ future_impl.dart:763
+complete @ future_impl.dart:98
+(anonymous) @ js_util_patch.dart:572
+Promise.then
+promiseToFuture @ js_util_patch.dart:591
+JSPromiseToFuture$124get$35toDart @ js_interop_patch.dart:157
+DomResponse$124arrayBuffer @ dom.dart:1390
+asByteBuffer @ dom.dart:1282
+HttpFetchResponseExtension$124asByteBuffer @ dom.dart:1157
+(anonymous) @ platform_dispatcher.dart:662
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+(anonymous) @ async_patch.dart:594
+runUnary @ zone.dart:1849
+handleValue @ future_impl.dart:222
+handleValueCallback @ future_impl.dart:948
+_propagateToListeners @ future_impl.dart:977
+[_completeWithValue] @ future_impl.dart:720
+complete @ async_patch.dart:504
+_asyncReturn @ async_patch.dart:571
+(anonymous) @ dom.dart:1067
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+(anonymous) @ async_patch.dart:594
+runUnary @ zone.dart:1849
+handleValue @ future_impl.dart:222
+handleValueCallback @ future_impl.dart:948
+_propagateToListeners @ future_impl.dart:977
+[_completeWithValue] @ future_impl.dart:720
+(anonymous) @ future_impl.dart:804
+_microtaskLoop @ schedule_microtask.dart:40
+_startMicrotaskLoop @ schedule_microtask.dart:49
+tear @ operations.dart:118
+(anonymous) @ async_patch.dart:188
+Promise.then
+_scheduleImmediateWithPromise @ async_patch.dart:187
+_scheduleImmediate @ async_patch.dart:160
+_scheduleAsyncCallback @ schedule_microtask.dart:70
+_rootScheduleMicrotask @ zone.dart:1623
+scheduleMicrotask @ zone.dart:1869
+[_asyncCompleteWithValue] @ future_impl.dart:803
+[_asyncComplete] @ future_impl.dart:763
+complete @ future_impl.dart:98
+(anonymous) @ js_util_patch.dart:572
+Promise.then
+promiseToFuture @ js_util_patch.dart:591
+JSPromiseToFuture$124get$35toDart @ js_interop_patch.dart:157
+rawHttpGet @ dom.dart:1035
+(anonymous) @ dom.dart:1062
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+_asyncStartSync @ async_patch.dart:542
+httpFetch @ dom.dart:1054
+loadAsset @ asset_manager.dart:83
+(anonymous) @ platform_dispatcher.dart:661
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+_asyncStartSync @ async_patch.dart:542
+[_handleFlutterAssetsMessage] @ platform_dispatcher.dart:655
+[_sendPlatformMessage] @ platform_dispatcher.dart:494
+sendPlatformMessage @ platform_dispatcher.dart:368
+send @ binding.dart:625
+load @ asset_bundle.dart:329
+(anonymous) @ asset_bundle.dart:92
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+_asyncStartSync @ async_patch.dart:542
+loadString @ asset_bundle.dart:91
+(anonymous) @ asset_bundle.dart:193
+putIfAbsent @ identity_hash_map.dart:76
+loadString @ asset_bundle.dart:193
+(anonymous) @ dotenv.dart:166
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+_asyncStartSync @ async_patch.dart:542
+[_getEntriesFromFile] @ dotenv.dart:163
+(anonymous) @ dotenv.dart:124
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+_asyncStartSync @ async_patch.dart:542
+load @ dotenv.dart:116
+(anonymous) @ main.dart:14
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+_asyncStartSync @ async_patch.dart:542
+main$ @ main.dart:13
+tear @ operations.dart:118
+(anonymous) @ web_entrypoint.dart:24
+(anonymous) @ initialization.dart:39
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+(anonymous) @ async_patch.dart:594
+runUnary @ zone.dart:1849
+handleValue @ future_impl.dart:222
+handleValueCallback @ future_impl.dart:948
+_propagateToListeners @ future_impl.dart:977
+[_completeWithValue] @ future_impl.dart:720
+(anonymous) @ future_impl.dart:804
+_microtaskLoop @ schedule_microtask.dart:40
+_startMicrotaskLoop @ schedule_microtask.dart:49
+tear @ operations.dart:118
+(anonymous) @ async_patch.dart:188
+Promise.then
+_scheduleImmediateWithPromise @ async_patch.dart:187
+_scheduleImmediate @ async_patch.dart:160
+_scheduleAsyncCallback @ schedule_microtask.dart:70
+_rootScheduleMicrotask @ zone.dart:1623
+scheduleMicrotask @ zone.dart:1869
+[_asyncCompleteWithValue] @ future_impl.dart:803
+[_asyncComplete] @ future_impl.dart:763
+(anonymous) @ future_impl.dart:359
+value @ future.dart:351
+(anonymous) @ window.dart:577
+implicit @ window.dart:62
+ensureImplicitViewInitialized @ window.dart:659
+(anonymous) @ initialization.dart:187
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+_asyncStartSync @ async_patch.dart:542
+initializeEngineUi @ initialization.dart:165
+(anonymous) @ initialization.dart:37
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+_asyncStartSync @ async_patch.dart:542
+(anonymous) @ initialization.dart:39
+(anonymous) @ app_bootstrap.dart:59
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+_asyncStartSync @ async_patch.dart:542
+(anonymous) @ app_bootstrap.dart:60
+(anonymous) @ js_loader.dart:63
+_callDartFunctionFast1 @ js_allow_interop_patch.dart:228
+ret @ js_allow_interop_patch.dart:84
+(anonymous) @ flutter_bootstrap.js:1
+Promise.then
+s @ flutter_bootstrap.js:1
+didCreateEngineInitializer @ flutter_bootstrap.js:1
+(anonymous) @ initialization.dart:50
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+_asyncStartSync @ async_patch.dart:542
+bootstrapEngine @ initialization.dart:27
+(anonymous) @ web_entrypoint.dart:19
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+_asyncStartSync @ async_patch.dart:542
+main$ @ web_entrypoint.dart:18
+runMainAndHandleErrors @ ddc_module_loader.js:1554
+_runMain @ ddc_module_loader.js:1576
+runMain @ ddc_module_loader.js:1587
+runMain @ ddc_module_loader.js:2123
+child.main @ main_module.bootstrap.js:25
+(anonymous) @ main_module.bootstrap.js:33
+window.$dartRunMain @ main_module.bootstrap.js:32
+(anonymous) @ VM4789:1
+runMain @ client.js:10286
+(anonymous) @ client.js:27386
+(anonymous) @ client.js:3889
+call$2 @ client.js:13239
+_asyncStartSync @ client.js:3853
+$call$body$main_closure @ client.js:27393
+call$0 @ client.js:27300
+_rootRun @ client.js:4350
+run$1$1 @ client.js:14837
+runZonedGuarded @ client.js:4459
+main @ client.js:9913
+(anonymous) @ client.js:29609
+(anonymous) @ client.js:29590
+dartProgram @ client.js:29603
+(anonymous) @ client.js:29612
+errors.dart:307 Uncaught (in promise) RethrownDartError: ClientException: Failed to fetch, uri=http://127.0.0.1:8000/users/me
+    package:http/src/browser_client.dart 82:30                                        <fn>
+dart-sdk/lib/_internal/js_dev_runtime/patch/async_patch.dart 623:19               <fn>
+dart-sdk/lib/_internal/js_dev_runtime/patch/async_patch.dart 648:23               <fn>
+dart-sdk/lib/_internal/js_dev_runtime/patch/async_patch.dart 594:19               <fn>
+dart-sdk/lib/async/zone.dart 1849:54                                              runUnary
+dart-sdk/lib/async/future_impl.dart 222:18                                        handleValue
+dart-sdk/lib/async/future_impl.dart 948:44                                        handleValueCallback
+dart-sdk/lib/async/future_impl.dart 977:13                                        _propagateToListeners
+dart-sdk/lib/async/future_impl.dart 720:5                                         [_completeWithValue]
+dart-sdk/lib/async/future_impl.dart 804:7                                         <fn>
+dart-sdk/lib/async/schedule_microtask.dart 40:34                                  _microtaskLoop
+dart-sdk/lib/async/schedule_microtask.dart 49:5                                   _startMicrotaskLoop
+dart-sdk/lib/_internal/js_dev_runtime/private/ddc_runtime/operations.dart 118:77  tear
+dart-sdk/lib/_internal/js_dev_runtime/patch/async_patch.dart 188:69               <fn>
+
+
+    at Object.createErrorWithStack (errors.dart:307:10)
+    at Error._throw (core_patch.dart:280:28)
+    at Error.throwWithStackTrace (errors.dart:120:5)
+    at zone.dart:1512:11
+    at Object._microtaskLoop (schedule_microtask.dart:40:34)
+    at Object._startMicrotaskLoop (schedule_microtask.dart:49:5)
+    at tear (operations.dart:118:77)
+    at async_patch.dart:188:69
+createErrorWithStack @ errors.dart:307
+_throw @ core_patch.dart:280
+throwWithStackTrace @ errors.dart:120
+(anonymous) @ zone.dart:1512
+_microtaskLoop @ schedule_microtask.dart:40
+_startMicrotaskLoop @ schedule_microtask.dart:49
+tear @ operations.dart:118
+(anonymous) @ async_patch.dart:188
+Promise.then
+_scheduleImmediateWithPromise @ async_patch.dart:187
+_scheduleImmediate @ async_patch.dart:160
+_scheduleAsyncCallback @ schedule_microtask.dart:70
+_rootScheduleMicrotask @ zone.dart:1623
+scheduleMicrotask @ zone.dart:1869
+[_asyncCompleteErrorObject] @ future_impl.dart:831
+[_completeErrorObject] @ future_impl.dart:102
+completeError @ future_impl.dart:82
+(anonymous) @ js_util_patch.dart:588
+Promise.then
+promiseToFuture @ js_util_patch.dart:591
+JSPromiseToFuture$124get$35toDart @ js_interop_patch.dart:157
+(anonymous) @ browser_client.dart:97
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+(anonymous) @ async_patch.dart:594
+runUnary @ zone.dart:1849
+handleValue @ future_impl.dart:222
+handleValueCallback @ future_impl.dart:948
+_propagateToListeners @ future_impl.dart:977
+[_completeWithValue] @ future_impl.dart:720
+(anonymous) @ future_impl.dart:804
+_microtaskLoop @ schedule_microtask.dart:40
+_startMicrotaskLoop @ schedule_microtask.dart:49
+tear @ operations.dart:118
+(anonymous) @ async_patch.dart:188
+Promise.then
+_scheduleImmediateWithPromise @ async_patch.dart:187
+_scheduleImmediate @ async_patch.dart:160
+_scheduleAsyncCallback @ schedule_microtask.dart:70
+_rootScheduleMicrotask @ zone.dart:1623
+scheduleMicrotask$ @ schedule_microtask.dart:150
+schedule @ stream_impl.dart:645
+[_setPendingEvents] @ stream_impl.dart:150
+[_subscribe] @ stream_controller.dart:714
+[_createSubscription] @ stream_controller.dart:854
+listen @ stream_impl.dart:516
+listen @ stream.dart:2319
+toBytes @ byte_stream.dart:23
+(anonymous) @ browser_client.dart:74
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+_asyncStartSync @ async_patch.dart:542
+send @ browser_client.dart:65
+(anonymous) @ base_client.dart:93
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+_asyncStartSync @ async_patch.dart:542
+[_sendUnstreamed] @ base_client.dart:74
+get @ base_client.dart:27
+(anonymous) @ http.dart:50
+(anonymous) @ http.dart:168
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+_asyncStartSync @ async_patch.dart:542
+_withClient @ http.dart:165
+get @ http.dart:50
+(anonymous) @ auth_service.dart:28
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+_asyncStartSync @ async_patch.dart:542
+fetchUser @ auth_service.dart:24
+(anonymous) @ auth_provider.dart:21
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+_asyncStartSync @ async_patch.dart:542
+fetchUser @ auth_provider.dart:18
+dartDevEmbedder.defineLibrary.auth_provider.AuthProvider.new @ auth_provider.dart:15
+(anonymous) @ main.dart:26
+get value @ inherited_provider.dart:749
+get value @ inherited_provider.dart:603
+of @ provider.dart:337
+(anonymous) @ main.dart:31
+build @ basic.dart:8226
+build @ framework.dart:5791
+performRebuild @ framework.dart:5723
+rebuild @ framework.dart:5435
+[_firstBuild] @ framework.dart:5705
+mount @ framework.dart:5699
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+performRebuild @ framework.dart:5747
+rebuild @ framework.dart:5435
+[_firstBuild] @ framework.dart:5705
+mount @ framework.dart:5699
+mount @ inherited_provider.dart:424
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+performRebuild @ framework.dart:5747
+rebuild @ framework.dart:5435
+[_firstBuild] @ framework.dart:5705
+mount @ framework.dart:5699
+mount @ inherited_provider.dart:424
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+performRebuild @ framework.dart:5747
+rebuild @ framework.dart:5435
+[_firstBuild] @ framework.dart:5705
+mount @ framework.dart:5699
+mount @ nested.dart:222
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+performRebuild @ framework.dart:5747
+rebuild @ framework.dart:5435
+[_firstBuild] @ framework.dart:5705
+mount @ framework.dart:5699
+mount @ nested.dart:187
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+performRebuild @ framework.dart:5747
+rebuild @ framework.dart:5435
+[_firstBuild] @ framework.dart:5705
+mount @ framework.dart:5699
+mount @ nested.dart:222
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+performRebuild @ framework.dart:5747
+rebuild @ framework.dart:5435
+[_firstBuild] @ framework.dart:5705
+mount @ framework.dart:5699
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+performRebuild @ framework.dart:5747
+rebuild @ framework.dart:5435
+[_firstBuild] @ framework.dart:5705
+mount @ framework.dart:5699
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+performRebuild @ framework.dart:5747
+performRebuild @ framework.dart:5884
+rebuild @ framework.dart:5435
+[_firstBuild] @ framework.dart:5705
+[_firstBuild] @ framework.dart:5875
+mount @ framework.dart:5699
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+performRebuild @ framework.dart:5747
+rebuild @ framework.dart:5435
+[_firstBuild] @ framework.dart:5705
+mount @ framework.dart:5699
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+performRebuild @ framework.dart:5747
+performRebuild @ framework.dart:5884
+rebuild @ framework.dart:5435
+[_firstBuild] @ framework.dart:5705
+[_firstBuild] @ framework.dart:5875
+mount @ framework.dart:5699
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+performRebuild @ framework.dart:5747
+performRebuild @ framework.dart:5884
+rebuild @ framework.dart:5435
+[_firstBuild] @ framework.dart:5705
+[_firstBuild] @ framework.dart:5875
+mount @ framework.dart:5699
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+performRebuild @ framework.dart:5747
+rebuild @ framework.dart:5435
+[_firstBuild] @ framework.dart:5705
+mount @ framework.dart:5699
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+performRebuild @ framework.dart:5747
+performRebuild @ framework.dart:5884
+rebuild @ framework.dart:5435
+[_firstBuild] @ framework.dart:5705
+[_firstBuild] @ framework.dart:5875
+mount @ framework.dart:5699
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+performRebuild @ framework.dart:5747
+rebuild @ framework.dart:5435
+[_firstBuild] @ framework.dart:5705
+mount @ framework.dart:5699
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+performRebuild @ framework.dart:5747
+rebuild @ framework.dart:5435
+[_firstBuild] @ framework.dart:5705
+mount @ framework.dart:5699
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+[_updateChild] @ view.dart:481
+mount @ view.dart:504
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+performRebuild @ framework.dart:5747
+rebuild @ framework.dart:5435
+[_firstBuild] @ framework.dart:5705
+mount @ framework.dart:5699
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+performRebuild @ framework.dart:5747
+performRebuild @ framework.dart:5884
+rebuild @ framework.dart:5435
+[_firstBuild] @ framework.dart:5705
+[_firstBuild] @ framework.dart:5875
+mount @ framework.dart:5699
+inflateWidget @ framework.dart:4548
+updateChild @ framework.dart:4004
+[_rebuild] @ binding.dart:1716
+mount @ binding.dart:1685
+(anonymous) @ binding.dart:1638
+buildScope @ framework.dart:3046
+attach @ binding.dart:1637
+attachToBuildOwner @ binding.dart:1376
+attachRootWidget @ binding.dart:1361
+(anonymous) @ binding.dart:1347
+internalCallback @ isolate_helper.dart:47
+setTimeout
+(anonymous) @ isolate_helper.dart:54
+_createTimer @ async_patch.dart:199
+createTimer @ zone.dart:1873
+new @ timer.dart:46
+run @ timer.dart:107
+scheduleAttachRootWidget @ binding.dart:1346
+(anonymous) @ binding.dart:1575
+_runWidget @ binding.dart:1575
+runApp @ binding.dart:1510
+(anonymous) @ main.dart:15
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+(anonymous) @ async_patch.dart:594
+runUnary @ zone.dart:1849
+handleValue @ future_impl.dart:222
+handleValueCallback @ future_impl.dart:948
+_propagateToListeners @ future_impl.dart:977
+[_completeWithValue] @ future_impl.dart:720
+complete @ async_patch.dart:504
+_asyncReturn @ async_patch.dart:571
+(anonymous) @ dotenv.dart:140
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+(anonymous) @ async_patch.dart:594
+runUnary @ zone.dart:1849
+handleValue @ future_impl.dart:222
+handleValueCallback @ future_impl.dart:948
+_propagateToListeners @ future_impl.dart:977
+[_completeWithValue] @ future_impl.dart:720
+complete @ async_patch.dart:504
+_asyncReturn @ async_patch.dart:571
+(anonymous) @ dotenv.dart:174
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+(anonymous) @ async_patch.dart:594
+runUnary @ zone.dart:1849
+handleValue @ future_impl.dart:222
+handleValueCallback @ future_impl.dart:948
+_propagateToListeners @ future_impl.dart:977
+[_completeWithValue] @ future_impl.dart:720
+complete @ async_patch.dart:504
+_asyncReturn @ async_patch.dart:571
+(anonymous) @ asset_bundle.dart:101
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+(anonymous) @ async_patch.dart:594
+runUnary @ zone.dart:1849
+handleValue @ future_impl.dart:222
+handleValueCallback @ future_impl.dart:948
+_propagateToListeners @ future_impl.dart:977
+[_completeWithValue] @ future_impl.dart:720
+(anonymous) @ future_impl.dart:804
+_microtaskLoop @ schedule_microtask.dart:40
+_startMicrotaskLoop @ schedule_microtask.dart:49
+tear @ operations.dart:118
+(anonymous) @ async_patch.dart:188
+Promise.then
+_scheduleImmediateWithPromise @ async_patch.dart:187
+_scheduleImmediate @ async_patch.dart:160
+_scheduleAsyncCallback @ schedule_microtask.dart:70
+_rootScheduleMicrotask @ zone.dart:1623
+scheduleMicrotask @ zone.dart:1869
+[_asyncCompleteWithValue] @ future_impl.dart:803
+[_asyncComplete] @ future_impl.dart:763
+complete @ future_impl.dart:98
+(anonymous) @ binding.dart:627
+runUnaryGuarded @ zone.dart:1778
+(anonymous) @ platform_dispatcher.dart:433
+(anonymous) @ platform_dispatcher.dart:1287
+runUnary @ zone.dart:1849
+handleValue @ future_impl.dart:222
+handleValueCallback @ future_impl.dart:948
+_propagateToListeners @ future_impl.dart:977
+[_complete] @ future_impl.dart:711
+(anonymous) @ future.dart:415
+internalCallback @ isolate_helper.dart:47
+setTimeout
+(anonymous) @ isolate_helper.dart:54
+_createTimer @ async_patch.dart:199
+createTimer @ zone.dart:1873
+new @ timer.dart:46
+delayed @ future.dart:413
+replyToPlatformMessage @ platform_dispatcher.dart:1285
+(anonymous) @ platform_dispatcher.dart:663
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+(anonymous) @ async_patch.dart:594
+runUnary @ zone.dart:1849
+handleValue @ future_impl.dart:222
+handleValueCallback @ future_impl.dart:948
+_propagateToListeners @ future_impl.dart:977
+[_completeWithValue] @ future_impl.dart:720
+(anonymous) @ future_impl.dart:804
+_microtaskLoop @ schedule_microtask.dart:40
+_startMicrotaskLoop @ schedule_microtask.dart:49
+tear @ operations.dart:118
+(anonymous) @ async_patch.dart:188
+Promise.then
+_scheduleImmediateWithPromise @ async_patch.dart:187
+_scheduleImmediate @ async_patch.dart:160
+_scheduleAsyncCallback @ schedule_microtask.dart:70
+_rootScheduleMicrotask @ zone.dart:1623
+scheduleMicrotask @ zone.dart:1869
+[_asyncCompleteWithValue] @ future_impl.dart:803
+[_asyncComplete] @ future_impl.dart:763
+complete @ future_impl.dart:98
+(anonymous) @ js_util_patch.dart:572
+Promise.then
+promiseToFuture @ js_util_patch.dart:591
+JSPromiseToFuture$124get$35toDart @ js_interop_patch.dart:157
+DomResponse$124arrayBuffer @ dom.dart:1390
+asByteBuffer @ dom.dart:1282
+HttpFetchResponseExtension$124asByteBuffer @ dom.dart:1157
+(anonymous) @ platform_dispatcher.dart:662
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+(anonymous) @ async_patch.dart:594
+runUnary @ zone.dart:1849
+handleValue @ future_impl.dart:222
+handleValueCallback @ future_impl.dart:948
+_propagateToListeners @ future_impl.dart:977
+[_completeWithValue] @ future_impl.dart:720
+complete @ async_patch.dart:504
+_asyncReturn @ async_patch.dart:571
+(anonymous) @ dom.dart:1067
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+(anonymous) @ async_patch.dart:594
+runUnary @ zone.dart:1849
+handleValue @ future_impl.dart:222
+handleValueCallback @ future_impl.dart:948
+_propagateToListeners @ future_impl.dart:977
+[_completeWithValue] @ future_impl.dart:720
+(anonymous) @ future_impl.dart:804
+_microtaskLoop @ schedule_microtask.dart:40
+_startMicrotaskLoop @ schedule_microtask.dart:49
+tear @ operations.dart:118
+(anonymous) @ async_patch.dart:188
+Promise.then
+_scheduleImmediateWithPromise @ async_patch.dart:187
+_scheduleImmediate @ async_patch.dart:160
+_scheduleAsyncCallback @ schedule_microtask.dart:70
+_rootScheduleMicrotask @ zone.dart:1623
+scheduleMicrotask @ zone.dart:1869
+[_asyncCompleteWithValue] @ future_impl.dart:803
+[_asyncComplete] @ future_impl.dart:763
+complete @ future_impl.dart:98
+(anonymous) @ js_util_patch.dart:572
+Promise.then
+promiseToFuture @ js_util_patch.dart:591
+JSPromiseToFuture$124get$35toDart @ js_interop_patch.dart:157
+rawHttpGet @ dom.dart:1035
+(anonymous) @ dom.dart:1062
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+_asyncStartSync @ async_patch.dart:542
+httpFetch @ dom.dart:1054
+loadAsset @ asset_manager.dart:83
+(anonymous) @ platform_dispatcher.dart:661
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+_asyncStartSync @ async_patch.dart:542
+[_handleFlutterAssetsMessage] @ platform_dispatcher.dart:655
+[_sendPlatformMessage] @ platform_dispatcher.dart:494
+sendPlatformMessage @ platform_dispatcher.dart:368
+send @ binding.dart:625
+load @ asset_bundle.dart:329
+(anonymous) @ asset_bundle.dart:92
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+_asyncStartSync @ async_patch.dart:542
+loadString @ asset_bundle.dart:91
+(anonymous) @ asset_bundle.dart:193
+putIfAbsent @ identity_hash_map.dart:76
+loadString @ asset_bundle.dart:193
+(anonymous) @ dotenv.dart:166
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+_asyncStartSync @ async_patch.dart:542
+[_getEntriesFromFile] @ dotenv.dart:163
+(anonymous) @ dotenv.dart:124
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+_asyncStartSync @ async_patch.dart:542
+load @ dotenv.dart:116
+(anonymous) @ main.dart:14
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+_asyncStartSync @ async_patch.dart:542
+main$ @ main.dart:13
+tear @ operations.dart:118
+(anonymous) @ web_entrypoint.dart:24
+(anonymous) @ initialization.dart:39
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+(anonymous) @ async_patch.dart:594
+runUnary @ zone.dart:1849
+handleValue @ future_impl.dart:222
+handleValueCallback @ future_impl.dart:948
+_propagateToListeners @ future_impl.dart:977
+[_completeWithValue] @ future_impl.dart:720
+(anonymous) @ future_impl.dart:804
+_microtaskLoop @ schedule_microtask.dart:40
+_startMicrotaskLoop @ schedule_microtask.dart:49
+tear @ operations.dart:118
+(anonymous) @ async_patch.dart:188
+Promise.then
+_scheduleImmediateWithPromise @ async_patch.dart:187
+_scheduleImmediate @ async_patch.dart:160
+_scheduleAsyncCallback @ schedule_microtask.dart:70
+_rootScheduleMicrotask @ zone.dart:1623
+scheduleMicrotask @ zone.dart:1869
+[_asyncCompleteWithValue] @ future_impl.dart:803
+[_asyncComplete] @ future_impl.dart:763
+(anonymous) @ future_impl.dart:359
+value @ future.dart:351
+(anonymous) @ window.dart:577
+implicit @ window.dart:62
+ensureImplicitViewInitialized @ window.dart:659
+(anonymous) @ initialization.dart:187
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+_asyncStartSync @ async_patch.dart:542
+initializeEngineUi @ initialization.dart:165
+(anonymous) @ initialization.dart:37
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+_asyncStartSync @ async_patch.dart:542
+(anonymous) @ initialization.dart:39
+(anonymous) @ app_bootstrap.dart:59
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+_asyncStartSync @ async_patch.dart:542
+(anonymous) @ app_bootstrap.dart:60
+(anonymous) @ js_loader.dart:63
+_callDartFunctionFast1 @ js_allow_interop_patch.dart:228
+ret @ js_allow_interop_patch.dart:84
+(anonymous) @ flutter_bootstrap.js:1
+Promise.then
+s @ flutter_bootstrap.js:1
+didCreateEngineInitializer @ flutter_bootstrap.js:1
+(anonymous) @ initialization.dart:50
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+_asyncStartSync @ async_patch.dart:542
+bootstrapEngine @ initialization.dart:27
+(anonymous) @ web_entrypoint.dart:19
+(anonymous) @ async_patch.dart:623
+(anonymous) @ async_patch.dart:648
+_asyncStartSync @ async_patch.dart:542
+main$ @ web_entrypoint.dart:18
+runMainAndHandleErrors @ ddc_module_loader.js:1554
+_runMain @ ddc_module_loader.js:1576
+runMain @ ddc_module_loader.js:1587
+runMain @ ddc_module_loader.js:2123
+child.main @ main_module.bootstrap.js:25
+(anonymous) @ main_module.bootstrap.js:33
+window.$dartRunMain @ main_module.bootstrap.js:32
+(anonymous) @ VM4789:1
+runMain @ client.js:10286
+(anonymous) @ client.js:27386
+(anonymous) @ client.js:3889
+call$2 @ client.js:13239
+_asyncStartSync @ client.js:3853
+$call$body$main_closure @ client.js:27393
+call$0 @ client.js:27300
+_rootRun @ client.js:4350
+run$1$1 @ client.js:14837
+runZonedGuarded @ client.js:4459
+main @ client.js:9913
+(anonymous) @ client.js:29609
+(anonymous) @ client.js:29590
+dartProgram @ client.js:29603
+(anonymous) @ client.js:29612

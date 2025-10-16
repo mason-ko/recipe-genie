@@ -9,7 +9,8 @@ class Settings(BaseSettings):
     GOOGLE_CLIENT_SECRET: Optional[str] = None
     GOOGLE_REDIRECT_URI: Optional[str] = None
     SECRET_KEY: str = "your-super-secret-key"
-    API_V1_STR: str = "/api/v1"
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 60
+    API_V1_STR: str = ""
     TESTING: bool = False
 
     model_config = SettingsConfigDict(env_file=".env")

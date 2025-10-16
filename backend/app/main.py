@@ -8,10 +8,25 @@ from app.models.user import User
 from app.models.ingredient import Ingredient
 from app.models.recipe import Recipe
 
+from fastapi.middleware.cors import CORSMiddleware
+
 # Create the database tables
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
+
+# CORS
+origins = [
+    "http://localhost:3001",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 def read_root():
